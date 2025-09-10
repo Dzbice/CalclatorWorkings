@@ -1,0 +1,14 @@
+.button.number-button {
+    -fx-font-size: 20px;
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-background-radius: 10;
+}
+
+.label.equation-label{
+    -fx-text-fill: BLUE;
+    -fx-background-color :  #e0e0e0;
+
+}
