@@ -43,7 +43,7 @@ public class Main extends Application {
     private Region createContent() {
         HBox textArea =new HBox(10,createTextField(),createSubmitButton());
         textArea.setAlignment(Pos.CENTER);
-        VBox results = new VBox(20,createEQLabel(),textArea);
+        VBox results = new VBox(20,createSupportedFunctions(),createEQLabel(),textArea);
         results.setAlignment(Pos.CENTER);
         return results;
     }
@@ -68,13 +68,28 @@ public class Main extends Application {
         results.getStyleClass().add("equation-label");
         return results;
     }
+    private Node createWarningsLabel(){
+        Label warning = new Label("Don't be surprised if it breaks, there's not integration for negative numbers" +
+                "or ANY error checking rn");
+        return warning;
+    }
+    private Node createSupportedFunctions(){
+        Label funcs = new Label("Supported Operations \n* / + - ^ ()");
+
+        funcs.getStyleClass().add("equation-label");
+        return funcs;
+    }
 
     private Node createSubmitButton(){
         Button submit = new Button("Submit");
-        submit.setOnAction(evt -> {System.out.println((Parser.shuntingYard(Tokenize.tokenize(typingEquation.get()))));equation.set(String.valueOf(Evaluate.evaluate(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())))));});
+        submit.setOnAction(evt -> {setEquation();});
 
         submit.getStyleClass().add("submit");
         return submit;
+    }
+
+    private void setEquation(){
+        equation.set(String.valueOf(Evaluate.evaluate(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())))));
     }
     /* private Node numberButtons() {
         ArrayList<Button> numbers = new ArrayList<>();
