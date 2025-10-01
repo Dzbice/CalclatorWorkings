@@ -66,7 +66,7 @@ public class Main extends Application {
 
     private Node createSubmitButton(){
         Button submit = new Button("Submit");
-        submit.setOnAction(evt -> {equation.set(Tokenize.tokenize(typingEquation.get()));System.out.println(typingEquation.get());});
+        submit.setOnAction(evt -> {equation.set(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())));System.out.println(typingEquation.get());});
         submit.getStyleClass().add("submit");
         return submit;
     }

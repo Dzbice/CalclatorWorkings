@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Tokenize {
 
-    static String tokenize(String token){
+    static ArrayList<Token> tokenize(String token){
         ArrayList<Token> tokens = new ArrayList<>();
         for(int i =0; i<= token.length() - 1; i++){
             if(TOKENTYPES.SPACE.is(String.valueOf(token.charAt(i)))){continue;}
@@ -33,11 +33,21 @@ public class Tokenize {
             }
             if(TOKENTYPES.LBRACKET.is(String.valueOf(token.charAt(i)))){
                 //System.out.println("Operator");
+                if(i !=0 && (TOKENTYPES.LITERAL.is(String.valueOf(token.charAt(i-1))) || TOKENTYPES.RBRACKET.is(String.valueOf(token.charAt(i-1))) )){
+                    tokens.add(new Token("Operator","*"));
+                }
                 tokens.add(new Token("LBRACKET",String.valueOf(token.charAt(i))));
             }
             if(TOKENTYPES.RBRACKET.is(String.valueOf(token.charAt(i)))){
                 //System.out.println("Operator");
-                tokens.add(new Token("RBRACKET",String.valueOf(token.charAt(i))));
+                if(i != token.length() -1 && (TOKENTYPES.LITERAL.is(String.valueOf(token.charAt(i+1))))){
+                    tokens.add(new Token("RBRACKET",String.valueOf(token.charAt(i))));
+                    tokens.add(new Token("Operator","*"));
+                } else{
+
+                    tokens.add(new Token("RBRACKET",String.valueOf(token.charAt(i))));
+                }
+
             }
 
 
@@ -45,15 +55,15 @@ public class Tokenize {
 
 
 
-        StringBuffer output = new StringBuffer();
+        /*StringBuffer output = new StringBuffer();
         for(Token n : tokens){
           //  System.out.println(n);
             output.append(n).append(" ");
         }
-        System.out.println(output);
+        System.out.println(output);*/
 
 
-        return output.toString();
+        return tokens;
     }
 
 
