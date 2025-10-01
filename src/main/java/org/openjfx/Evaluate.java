@@ -13,9 +13,9 @@ public class Evaluate {
         }
         double output;
         Stack<String> stack = new Stack<>();
-        System.out.println(postfix);
+        //System.out.println(postfix);
         ArrayList<String> lookThru = new ArrayList<>(List.of(postfix.split("\\s+")));
-        System.out.println(lookThru);
+        //System.out.println(lookThru);
         for(int i = 0; i<=lookThru.size()-1;i++){
             if(TOKENTYPES.LITERAL.is(String.valueOf(lookThru.get(i).charAt(lookThru.get(i).length()-1)))){
                 stack.push(lookThru.get(i));
