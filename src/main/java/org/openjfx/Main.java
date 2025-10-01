@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -30,6 +31,10 @@ public class Main extends Application {
         } catch (NullPointerException e) {
             System.out.println("Couldn't find form");
         }
+
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                equation.set(String.valueOf(Evaluate.evaluate(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())))));}});
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -66,7 +71,8 @@ public class Main extends Application {
 
     private Node createSubmitButton(){
         Button submit = new Button("Submit");
-        submit.setOnAction(evt -> {equation.set(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())));System.out.println(typingEquation.get());});
+        submit.setOnAction(evt -> {System.out.println((Parser.shuntingYard(Tokenize.tokenize(typingEquation.get()))));equation.set(String.valueOf(Evaluate.evaluate(Parser.shuntingYard(Tokenize.tokenize(typingEquation.get())))));});
+
         submit.getStyleClass().add("submit");
         return submit;
     }
