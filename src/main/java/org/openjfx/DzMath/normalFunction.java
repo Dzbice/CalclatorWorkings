@@ -1,4 +1,4 @@
-package DzMath;
+package org.openjfx.DzMath;
 
 public class normalFunction {
 

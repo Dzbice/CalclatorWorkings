@@ -1,6 +1,6 @@
 package org.openjfx;
 
-import DzMath.normalFunction;
+import org.openjfx.DzMath.normalFunction;
 
 import java.util.ArrayList;
 import java.util.List;
