@@ -9,6 +9,6 @@ Also you can't input floats either\
 Basically for a number x it's \
 $\{ x \mid x \in W \}$ Smth like that idk\
 IDK how to put the actual W in a markdown file so that's the best you get\
-Anyways I'll add more to it in the future but it's 6:30 am as of writing so not rn lol. 
-
+Anyways I'll add more to it in the future but it's 6:30 am as of writing so not rn lol.\
+Have fun
 
