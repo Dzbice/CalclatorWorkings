@@ -21,7 +21,7 @@ public class Evaluate {
             if(TOKENTYPES.LITERAL.is(String.valueOf(lookThru.get(i).charAt(lookThru.get(i).length()-1)))){
                 stack.push(lookThru.get(i));
             } else if(TOKENTYPES.PI.is(lookThru.get(i))){
-                stack.push(String.valueOf(Constants.pi()));
+                stack.push(String.valueOf(Constants.PI));
             }else{
                 double b = Double.parseDouble(stack.pop());
                 double a = Double.parseDouble(stack.pop());

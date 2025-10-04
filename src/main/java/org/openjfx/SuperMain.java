@@ -15,8 +15,8 @@ public class SuperMain {
             x++;
 
         }*/
-        System.out.println("\nMy pi: " + Constants.pi() + "\nJava Pi: " + Math.PI + "\n Di" +
-                "fference: " + (Constants.pi()- Math.PI));
+        System.out.println("\nMy pi: " + Constants.PI + "\nJa Pi: " + Math.PI + "\n Di" +
+                "difference: " + (Constants.PI- Math.PI));
         Main.main(args);
     }
 }
