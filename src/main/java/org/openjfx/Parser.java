@@ -19,7 +19,7 @@ public class Parser {
         Stack<String> stack = new Stack<>();
         for(int i = 0;i<= tokens.size()-1;i++){
             Token tokenRead = tokens.get(i);
-            if(tokenRead.getType().equals("Literal")){
+            if(tokenRead.getType().equals("Literal") || tokenRead.getType().equals("PI")){
                 output.append(tokenRead.getValue()).append(" ");
             }
             else if(tokenRead.getType().equals("Operator")){

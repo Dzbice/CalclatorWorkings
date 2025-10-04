@@ -3,6 +3,7 @@ package org.openjfx;
 public enum TOKENTYPES {
     LITERAL("0123456789"),
     OPERATOR("+/-*^!"),
+    PI("pi"),
     LBRACKET("("),
     RBRACKET(")"),
     SPACE(" ");

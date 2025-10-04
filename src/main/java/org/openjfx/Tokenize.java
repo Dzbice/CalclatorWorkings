@@ -49,21 +49,52 @@ public class Tokenize {
                 }
 
             }
+            if(String.valueOf(token.charAt(i)).equalsIgnoreCase("p")){
+                if(i == token.length()-1){
+
+                } else{
+                    if(String.valueOf(token.charAt(i+1)).equalsIgnoreCase("i")){
+                        tokens.add(new Token("PI","pi"));
+                    }
+                }
+            }
 
 
         }
 
 
 
-        /*StringBuffer output = new StringBuffer();
-        for(Token n : tokens){
-          //  System.out.println(n);
-            output.append(n).append(" ");
+
+        ArrayList<Token> updatedTokens = new ArrayList<>();
+
+        for (int i = 0; i < tokens.size(); i++) {
+            Token current = tokens.get(i);
+
+
+            if (current.getType().equals("PI")) {
+                if (i > 0) {
+                    Token prev = tokens.get(i - 1);
+                    if (prev.getType().equals("Literal") || prev.getType().equals("RBRACKET")) {
+                        updatedTokens.add(new Token("Operator", "*"));
+                    }
+                }
+            }
+
+            updatedTokens.add(current);
+
+
+            if (current.getType().equals("PI")) {
+                if (i + 1 < tokens.size()) {
+                    Token next = tokens.get(i + 1);
+                    if (next.getType().equals("Literal") || next.getType().equals("LBRACKET")) {
+                        updatedTokens.add(new Token("Operator", "*"));
+                    }
+                }
+            }
         }
-        System.out.println(output);*/
 
 
-        return tokens;
+        return updatedTokens;
     }
 
 

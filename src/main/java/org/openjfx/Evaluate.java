@@ -1,5 +1,6 @@
 package org.openjfx;
 
+import org.openjfx.DzMath.Constants;
 import org.openjfx.DzMath.normalFunction;
 
 import java.util.ArrayList;
@@ -19,7 +20,9 @@ public class Evaluate {
         for(int i = 0; i<=lookThru.size()-1;i++){
             if(TOKENTYPES.LITERAL.is(String.valueOf(lookThru.get(i).charAt(lookThru.get(i).length()-1)))){
                 stack.push(lookThru.get(i));
-            } else{
+            } else if(TOKENTYPES.PI.is(lookThru.get(i))){
+                stack.push(String.valueOf(Constants.pi()));
+            }else{
                 double b = Double.parseDouble(stack.pop());
                 double a = Double.parseDouble(stack.pop());
                 switch (lookThru.get(i)){
