@@ -16,13 +16,13 @@ public class normalFunction {
         return output;
     }
 
-    public static int factorial(int a){
-        int output = 1;
+    public static long factorial(long a){
+        long output = 1;
         if(a == 0){
             return 1;
         }
 
-        for(int i = a; i>0;i--){
+        for(long i = a; i>0;i--){
             output*=i;
         }
         return output;
