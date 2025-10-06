@@ -59,6 +59,10 @@ public class Tokenize {
                 }
             }
 
+            if(String.valueOf(token.charAt(i)).equalsIgnoreCase("e")){
+                tokens.add(new Token("e","e"));
+            }
+
 
         }
 
@@ -71,7 +75,7 @@ public class Tokenize {
             Token current = tokens.get(i);
 
 
-            if (current.getType().equals("PI")) {
+            if (current.getType().equals("PI") || current.getType().equals("e")) {
                 if (i > 0) {
                     Token prev = tokens.get(i - 1);
                     if (prev.getType().equals("Literal") || prev.getType().equals("RBRACKET")) {
@@ -83,7 +87,7 @@ public class Tokenize {
             updatedTokens.add(current);
 
 
-            if (current.getType().equals("PI")) {
+            if (current.getType().equals("PI") || current.getType().equals("e")) {
                 if (i + 1 < tokens.size()) {
                     Token next = tokens.get(i + 1);
                     if (next.getType().equals("Literal") || next.getType().equals("LBRACKET")) {

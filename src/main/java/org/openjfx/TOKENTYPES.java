@@ -4,6 +4,7 @@ public enum TOKENTYPES {
     LITERAL("0123456789"),
     OPERATOR("+/-*^!"),
     PI("pi"),
+    E("e"),
     LBRACKET("("),
     RBRACKET(")"),
     SPACE(" ");

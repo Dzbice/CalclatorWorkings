@@ -22,7 +22,9 @@ public class Evaluate {
                 stack.push(lookThru.get(i));
             } else if(TOKENTYPES.PI.is(lookThru.get(i))){
                 stack.push(String.valueOf(Constants.PI));
-            }else{
+            } else if(TOKENTYPES.E.is(lookThru.get(i))){
+                stack.push(String.valueOf(Constants.e));
+            } else{
                 double b = Double.parseDouble(stack.pop());
                 double a = Double.parseDouble(stack.pop());
                 switch (lookThru.get(i)){
