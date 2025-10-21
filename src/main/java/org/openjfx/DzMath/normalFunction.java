@@ -7,7 +7,8 @@ public class normalFunction {
         if(b ==0 || a==1){
             return 1;
         }
-        for(int i = 1; i<b; i++ ){
+
+        for(int i = 1; i< (int)absoluteValue(b); i++ ){
             output*=a;
         }
         if (b < 0){
