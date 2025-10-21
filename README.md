@@ -2,8 +2,7 @@
 Yeah so personal project of mine is well a calculator. \
 Currently supports * /+ - ^\
 There is a total of ZERO error handling so you've been warned(for now)\
-Also anything that's invalid is just ignored\
-Also you can't straight put in a negative number yet\
+Also anything that's invalid is just ignored kinda bascially. 
 There's also no square root yet\
 Also you can't input floats either\
 Basically for a number x it's \
