@@ -11,6 +11,7 @@ public class Parser {
         put("*",2);
         put("/",2);
         put("^",3);
+        put("m",3);
     }};
 
 //128+21-3(4+5)*2-1/2
@@ -19,12 +20,13 @@ public class Parser {
         Stack<String> stack = new Stack<>();
         for(int i = 0;i<= tokens.size()-1;i++){
             Token tokenRead = tokens.get(i);
-            if(tokenRead.getType().equals("Literal") || tokenRead.getType().equals("PI") || tokenRead.getType().equals("e")){
+
+             if(tokenRead.getType().equals("Literal") || tokenRead.getType().equals("PI") || tokenRead.getType().equals("e")){
                 output.append(tokenRead.getValue()).append(" ");
             }
-            else if(tokenRead.getType().equals("Operator")){
+            else if(tokenRead.getType().equals("Operator") || tokenRead.getType().equals("Negative")){
                 if(!stack.isEmpty()){
-                    if(TOKENTYPES.OPERATOR.is(stack.peek()) && precedence.get(stack.peek()) >= precedence.get(tokenRead.getValue())){
+                    if((TOKENTYPES.OPERATOR.is(stack.peek()) || TOKENTYPES.NEGATIVE.is(stack.peek())) && precedence.get(stack.peek()) >= precedence.get(tokenRead.getValue())){
                          output.append(stack.pop()).append(" ");
                     }
                 }

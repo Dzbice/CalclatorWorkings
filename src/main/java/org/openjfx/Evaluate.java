@@ -14,7 +14,7 @@ public class Evaluate {
         }
         double output;
         Stack<String> stack = new Stack<>();
-        //System.out.println(postfix);
+        System.out.println(postfix);
         ArrayList<String> lookThru = new ArrayList<>(List.of(postfix.split("\\s+")));
         //System.out.println(lookThru);
         for(int i = 0; i<=lookThru.size()-1;i++){
@@ -24,7 +24,9 @@ public class Evaluate {
                 stack.push(String.valueOf(Constants.PI));
             } else if(TOKENTYPES.E.is(lookThru.get(i))){
                 stack.push(String.valueOf(Constants.e));
-            } else{
+            } else if(TOKENTYPES.NEGATIVE.is(lookThru.get(i))){
+                stack.push(String.valueOf(Double.parseDouble(stack.pop())*-1));
+            }else{
                 double b = Double.parseDouble(stack.pop());
                 double a = Double.parseDouble(stack.pop());
                 switch (lookThru.get(i)){

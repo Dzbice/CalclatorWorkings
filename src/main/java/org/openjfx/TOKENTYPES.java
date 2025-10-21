@@ -7,7 +7,8 @@ public enum TOKENTYPES {
     E("e"),
     LBRACKET("("),
     RBRACKET(")"),
-    SPACE(" ");
+    SPACE(" "),
+    NEGATIVE("m");
 
 
     public final String tokenType;
